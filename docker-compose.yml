@@ -7,7 +7,7 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - ./dist:/usr/src/app
+      - ./docs:/usr/src/app
     tty: true
   cors-container:
     image: imjacobclark/cors-container
