@@ -7,9 +7,15 @@
   "author": "Mike Holloway <me@mikeholloway.co.uk>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "parcel build src/index.html",
+    "start": "parcel src/index.html -d dev-dist"
+  },
   "dependencies": {
-    "@types/node": "^12.6.1",
-    "hex-rgb": "^4.1.0",
-    "node-fetch": "2.6.0"
+    "hex-rgb": "4.1.0",
+    "parcel": "1.12.3"
+  },
+  "devDependencies": {
+    "typescript": "^3.5.3"
   }
 }

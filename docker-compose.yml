@@ -1,0 +1,16 @@
+version: '3'
+services:
+  jekyll:
+    image: starefossen/github-pages
+    environment:
+      - "JEKYLL_GITHUB_TOKEN:${JEKYLL_GITHUB_TOKEN}"
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./dist:/usr/src/app
+    tty: true
+  cors-container:
+    image: imjacobclark/cors-container
+    ports:
+      - "3000:3000"
+    restart: always
