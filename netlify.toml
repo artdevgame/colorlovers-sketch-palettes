@@ -5,6 +5,7 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
   from = "/colourlovers-api/*"
   to = "https://www.colourlovers.com/:splat"
   status = 200
