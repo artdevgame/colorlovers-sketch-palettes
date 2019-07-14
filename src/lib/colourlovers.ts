@@ -1,5 +1,4 @@
 import hexRgb from 'hex-rgb'
-import proxy from './proxy'
 
 function getPaletteId (urlOrId) {
   try {
@@ -14,9 +13,9 @@ function getPaletteId (urlOrId) {
 async function download (urlOrId) {
   try {
     const paletteId = getPaletteId(urlOrId)
-    const sketchPalettes = await fetch(await proxy(`https://raw.githubusercontent.com/andrewfiorillo/sketch-palettes/master/Sketch%20Palettes.sketchplugin/Contents/Sketch/manifest.json`))
+    const sketchPalettes = await fetch(process.env.SKETCHPALETTES_MANIFEST)
     const manifest = await sketchPalettes.json()
-    const palettes = await fetch(await proxy(`/colourlovers-api/palette/${paletteId}?format=json`))
+    const palettes = await fetch(`${process.env.API_COLOURLOVERS}/${paletteId}?format=json`)
     const [ selectedPalette ] = await palettes.json()
     const colors = selectedPalette.colors.map(hex => hexRgb(hex)).map(rgba => ({
       red: rgba.red / 255,
